@@ -97,7 +97,7 @@ interface Values{
     confirmPassword?: string
 }
 
-const Profile_change_password: React.FC = () =>  {
+const ProfileChangePassword: React.FC = () =>  {
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
@@ -136,7 +136,7 @@ const Profile_change_password: React.FC = () =>  {
         setErrors({});
     };
 
-    const handleSubmit = async (event : ChangeEvent<HTMLInputElement>) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const validationErrors = validation(values);
         setErrors(validationErrors);
@@ -338,4 +338,4 @@ const Profile_change_password: React.FC = () =>  {
 }
 
 
-export default Profile_change_password;
+export default ProfileChangePassword;
