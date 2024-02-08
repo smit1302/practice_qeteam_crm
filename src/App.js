@@ -1,7 +1,7 @@
 // App.js routing is manage by this here.
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Index from './Pages';
+import Index from './Pages/index.tsx';
 import PagesAccountSettingsAccount from './Pages/PagesAccountSettingsAccount.tsx';
 import FormsBasicInputs from './Pages/FormsBasicInputs.tsx'
 import PagesAccountSettingsNotifications from './Pages/PagesAccountSettingsNotifications.tsx'
