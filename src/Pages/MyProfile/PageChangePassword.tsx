@@ -29,8 +29,8 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { styled } from "@mui/material/styles";
 import { mainListItems, secondaryListItems } from "../Dashboard/ListItems";
-import Navbar from "../Compoents/Navbar";
-import Menu from "../Compoents/Menu";
+import Navbar from "../Components/Navbar.tsx";
+import Menu from "../Components/Menu.tsx";
 
 
 function Copyright(props) {

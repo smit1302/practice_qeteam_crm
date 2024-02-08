@@ -31,8 +31,8 @@ import { createTheme } from "@mui/material/styles";
 // import Deposits from "../Dashboard/Diposits";
 // import Orders from "../Dashboard/Orders";
 import Autocomplete from "@mui/material/Autocomplete";
-import Navbar from "../Components/Navbar";
-import Menu from "../Components/Menu";
+import Navbar from "../Components/Navbar.tsx";
+import Menu from "../Components/Menu.tsx";
 
 function Copyright(props) {
     return (

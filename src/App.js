@@ -11,8 +11,8 @@ import AuthRegisterBasic from './Pages/AuthRegisterBasic';
 import AuthForgotPasswordBasic from './Pages/AuthForgotPasswordBasic';
 import TablesBasic from './Pages/TablesBasic.tsx';
 import UserActions from './Pages/User/UserActions';
-import MyProfile from './Pages/MyProfile/MyProfile';
-import PageChangePassword from './Pages/MyProfile/PageChangePassword';
+import MyProfile from './Pages/MyProfile/MyProfile.tsx';
+import PageChangePassword from './Pages/MyProfile/PageChangePassword.tsx';
 
 const App = () => {
   return (
