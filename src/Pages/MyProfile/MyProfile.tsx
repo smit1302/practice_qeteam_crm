@@ -1,7 +1,7 @@
 // this is my profile file in which you can see your profile data like firstname, lastname, email, phone numner, country, state, city and profile pic.
 
-import React, {ChangeEvent, useState} from "react";
-import { Country, State, City } from "country-state-city";
+import React, {ChangeEvent, FormEventHandler, useState} from "react";
+import {Country, State, City, ICountry, IState, ICity} from "country-state-city";
 import {
     Select,
     MenuItem,
@@ -25,7 +25,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import IconButton from "@mui/material/IconButton";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { styled } from "@mui/system";
-import validation from "../Validation/MyProfileValidation";
+import validation from "../Validation/MyProfileValidation.tsx";
 import { createTheme } from "@mui/material/styles";
 // import Chart from "../Dashboard/Chart";
 // import Deposits from "../Dashboard/Diposits";
@@ -83,27 +83,10 @@ interface ValidUser{
 }
 
 
-interface CountryType {
-    name: string;
-    isoCode: string;
-}
-
-interface StateType {
-    name: string;
-    isoCode: string;
-    countryCode: string;
-}
-
-interface CityType {
-    name: string;
-    id: number;
-}
-
-
 interface Value extends ValidUser{
-    state?: StateType | null,
-    country?: CountryType | null,
-    city?: CityType | null,
+    state?: IState | null,
+    country?: ICountry | null,
+    city?: ICity | null,
     image? : ArrayBuffer | null
 }
 
@@ -114,7 +97,7 @@ interface Error extends ValidUser{
     image?: string
 }
 
-const MyProfile = () => {
+const MyProfile : React.FC = () => {
     const [values, setValues] = useState<Value>({
         firstName: "",
         lastName: "",
@@ -127,7 +110,7 @@ const MyProfile = () => {
     });
 
     const [errors, setErrors] = useState<Error>({});
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState<undefined|ArrayBuffer|null>(undefined);
 
     const handleImageChange = (e : ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files && e.target.files[0];
@@ -135,8 +118,8 @@ const MyProfile = () => {
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
-                    setImage(reader.result);
-                setValues((prev) => ({ ...prev, image: reader.result })); // Set image in values
+                    setImage(reader.result as ArrayBuffer);
+                setValues((prev) => ({ ...prev, image: reader.result as ArrayBuffer})); // Set image in values
             };
             reader.readAsDataURL(file);
         }
@@ -148,7 +131,7 @@ const MyProfile = () => {
     };
 
     // Function to handle Country change
-    const handleCountryChange = (item : CountryType) => {
+    const handleCountryChange = (item : ICountry) => {
         // Dynamic validation
         const validationErrors = validation({ ...values, country: item });
 
@@ -168,7 +151,7 @@ const MyProfile = () => {
     };
 
     // Function to handle State change
-    const handleStateChange = (item : StateType) => {
+    const handleStateChange = (item : IState) => {
         // Dynamic validation
         const validationErrors = validation({ ...values, state: item });
 
@@ -185,7 +168,18 @@ const MyProfile = () => {
     };
 
     // Function to handle City change
-    const handleCityChange = (item : CityType) => {
+    const handleCityChange = (item: ICity | '') => {
+        // Check if item is an empty string
+        if (typeof item === 'string') {
+            // Handle the case when an empty string is passed
+            // For example, clear the city value or perform any other action
+            setValues((prev) => ({
+                ...prev,
+                city: null, // Clear the city value or set it to a default value
+            }));
+            return; // Exit the function early
+        }
+
         // Dynamic validation
         const validationErrors = validation({ ...values, city: item });
 
@@ -199,6 +193,7 @@ const MyProfile = () => {
             city: item,
         }));
     };
+
     const handleChange = (event : ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
 
@@ -226,7 +221,7 @@ const MyProfile = () => {
         setErrors({});
     };
 
-    const handleSubmit = async (event :  ChangeEvent<HTMLButtonElement>) => {
+    const handleSubmit = async (event :  ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
         const validationErrors = validation(values);
         setErrors(validationErrors);
@@ -285,7 +280,7 @@ const MyProfile = () => {
                                                         }}
                                                     >
                                                         <img
-                                                            src={image}
+                                                            src={image as unknown as string}
                                                             alt="user-avatar"
                                                             className="d-block rounded"
                                                             height="100"
@@ -317,8 +312,8 @@ const MyProfile = () => {
                                                     <ImageUploadButton
                                                         htmlFor="upload"
                                                         className="btn me-2 mb-4"
-                                                        tabIndex="0"
-                                                        component="label"
+                                                        tabIndex={0}
+                                                        // component="label"
                                                         sx={{
                                                             backgroundColor: "#0d6efd",
                                                             "&:hover": {
@@ -342,10 +337,10 @@ const MyProfile = () => {
                                                     </ImageUploadButton>
 
                                                     <ResetButton
-                                                        type="button"
+                                                        // type="button"
                                                         className="btn account-image-reset mb-4"
                                                         onClick={handleResetImage}
-                                                        component="button"
+                                                        // component="button"
                                                         sx={{
                                                             backgroundColor: "white",
                                                             color: "#0d6efd",
@@ -442,17 +437,18 @@ const MyProfile = () => {
                                                         </InputLabel>
                                                         <Select
                                                             label="Country"
-                                                            value={values.country || ""}
+                                                            value={values.country}
                                                             onChange={(e) =>
-                                                                handleCountryChange(e.target.value)
+                                                                handleCountryChange(e.target.value as ICountry)
                                                             }
                                                             error={Boolean(errors.country)}
-                                                            helperText={errors.country}
+                                                            // helperText={errors.country}
                                                             inputProps={{
                                                                 name: "country",
                                                                 id: "country-select",
                                                             }}
                                                         >
+
                                                             {Country.getAllCountries().map((country) => (
                                                                 <MenuItem key={country.isoCode} value={country}>
                                                                     {country.name}
@@ -469,12 +465,12 @@ const MyProfile = () => {
                                                         </InputLabel>
                                                         <Select
                                                             label="State"
-                                                            value={values.state || ""}
+                                                            value={values.state as IState}
                                                             onChange={(e) =>
-                                                                handleStateChange(e.target.value)
+                                                                handleStateChange(e.target.value as IState)
                                                             }
                                                             error={Boolean(errors.state)}
-                                                            helperText={errors.state || ''}
+                                                            // helperText={errors.state}
                                                         >
                                                             {values.country &&
                                                                 State.getStatesOfCountry(
@@ -493,17 +489,17 @@ const MyProfile = () => {
                                                         <InputLabel htmlFor="city-select">City</InputLabel>
                                                         <Select
                                                             label="city"
-                                                            value={values.city || ""}
-                                                            onChange={(e) => handleCityChange(e.target.value)}
+                                                            value={values.city || ''}
+                                                            onChange={(e) => handleCityChange(e.target.value as ICity)}
                                                             error={Boolean(errors.city)}
-                                                            helperText={errors.city || ''}
+                                                            // helperText={errors.city}
                                                         >
                                                             {values.state &&
                                                                 City.getCitiesOfState(
                                                                     values.state.countryCode,
                                                                     values.state.isoCode
-                                                                ).map((city) => (
-                                                                    <MenuItem key={city.id} value={city}>
+                                                                ).map((city, index) => (
+                                                                    <MenuItem key={index} value={city}>
                                                                         {city.name}
                                                                     </MenuItem>
                                                                 ))}

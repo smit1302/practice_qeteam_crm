@@ -1,7 +1,7 @@
 //this is change password file from which you can change your password for that you have to fill current password , new password and confirm password field with validation like current password and new password should not match, there is 8 character max length, atleast one lowercase, one uppercase, one special character.Then new password and confirm password should be match.
 
 import React, {ChangeEvent, useState} from "react";
-import validation from "../Validation/ChangePasswordValidation";
+import validation from "../Validation/ChangePasswordValidation.tsx";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -28,7 +28,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { styled } from "@mui/material/styles";
-import { mainListItems, secondaryListItems } from "../Dashboard/ListItems";
+import { mainListItems, secondaryListItems } from "../Dashboard/ListItems.tsx";
 import Navbar from "../Components/Navbar.tsx";
 import Menu from "../Components/Menu.tsx";
 
@@ -97,7 +97,7 @@ interface Values{
     confirmPassword?: string
 }
 
-const Profile_change_password: React.FC = () =>  {
+const ProfileChangePassword: React.FC = () =>  {
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
@@ -136,7 +136,7 @@ const Profile_change_password: React.FC = () =>  {
         setErrors({});
     };
 
-    const handleSubmit = async (event : ChangeEvent<HTMLInputElement>) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const validationErrors = validation(values);
         setErrors(validationErrors);
@@ -338,4 +338,4 @@ const Profile_change_password: React.FC = () =>  {
 }
 
 
-export default Profile_change_password;
+export default ProfileChangePassword;

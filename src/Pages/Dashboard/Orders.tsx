@@ -5,14 +5,23 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Title from './Title';
+import Title from './Title.tsx';
+
+interface Row{
+    id: number;
+    date: string;
+    name: string;
+    shipTo: string;
+    paymentMethod: string;
+    amount: number;
+}
 
 // Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
+function createData(id: number, date: string, name: string, shipTo: string, paymentMethod: string, amount: number) {
   return { id, date, name, shipTo, paymentMethod, amount };
 }
 
-const rows = [
+const rows: Row[] = [
   createData(
     0,
     '16 Mar, 2019',
@@ -52,8 +61,8 @@ function preventDefault(event) {
   event.preventDefault();
 }
 
-export default function Orders() {
-  return (
+const Orders: React.FC = () => {
+    return (
     <React.Fragment>
       <Title>Recent Orders</Title>
       <Table size="small">
@@ -84,3 +93,4 @@ export default function Orders() {
     </React.Fragment>
   );
 }
+export default Orders;

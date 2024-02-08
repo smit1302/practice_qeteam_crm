@@ -1,12 +1,12 @@
-//this is main file which is first page you can see while run the project. 
+//this is main file which is first page you can see while run the project.
 
-import{ useEffect, useRef, useState } from "react";
-import ApexCharts from 'apexcharts';
-import React from 'react';
+import { useEffect, useRef, useState } from "react";
+import ApexCharts from "apexcharts";
+import React from "react";
 import Footer from "./Components/Footer.tsx";
 import Navbar from "./Components/Navbar.tsx";
 import Menu from "./Components/Menu.tsx";
-import Dashboard from "./Dashboard/Dashboard";
+import Dashboard from "./Dashboard/Dashboard.tsx";
 
 export default function Index() {
   // const totalRevenueChartRef = useRef(null);
@@ -22,7 +22,7 @@ export default function Index() {
   // const [OrderStatisticsInstance, setOrderStatisticsInstance] = useState(null);
   // const [incomeChartInstance, setIncomeChartInstance] = useState(null);
   // const [weeklyExpensesInstance, setWeeklyExpensesInstance] = useState(null);
- 
+
   // const config = {
   //   colors: {
   //     primary: '#696cff',
@@ -707,7 +707,7 @@ export default function Index() {
   //     options: weeklyExpensesOptions,
   //   },
   // ];
-  
+
   // Use a single useEffect for all charts
   // useEffect(() => {
   //   chartsData.forEach(({ ref, instance, setInstance, options }) => {
@@ -722,22 +722,19 @@ export default function Index() {
   // }, [chartsData]);
 
   return (
-    <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
+    <div className="layout-wrapper layout-content-navbar">
+      <div className="layout-container">
         {/* <!-- Menu --> */}
-        <Dashboard/>
+        <Dashboard />
         {/* <!-- / Menu --> */}
-        
+
         {/* <!-- Layout container --> */}
-        
+
         {/* <!-- / Layout page --> */}
 
         {/* <!-- Overlay --> */}
-        
       </div>
       {/* <!-- / Layout wrapper --> */}
-
-     
     </div>
   );
 }

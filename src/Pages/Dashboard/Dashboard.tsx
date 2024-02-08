@@ -18,13 +18,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from './ListItems';
-import Chart from './Chart';
-import Deposits from './Diposits';
-import Orders from './Orders';
+import Chart from './Chart.tsx';
+import Deposits from './Deposits.tsx';
+import Orders from './Orders.tsx';
 import Navbar from '../Components/Navbar.tsx';
 import Menu from '../Components/Menu.tsx';
 
-function Copyright(props) {
+function Copyright(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
@@ -36,7 +36,6 @@ function Copyright(props) {
     </Typography>
   );
 }
-
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();

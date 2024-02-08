@@ -3,14 +3,14 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Index from './Pages';
 import PagesAccountSettingsAccount from './Pages/PagesAccountSettingsAccount.tsx';
-import FormsBasicInputs from './Pages/FormsBasicInputs'
+import FormsBasicInputs from './Pages/FormsBasicInputs.tsx'
 import PagesAccountSettingsNotifications from './Pages/PagesAccountSettingsNotifications.tsx'
 import PagesAccountSettingsConnections from './Pages/PagesAccountSettingsConnections.tsx'
-import AuthLoginBasic from './Pages/AuthLoginBasic';
-import AuthRegisterBasic from './Pages/AuthRegisterBasic';
-import AuthForgotPasswordBasic from './Pages/AuthForgotPasswordBasic';
+import AuthLoginBasic from './Pages/AuthLoginBasic.tsx';
+import AuthRegisterBasic from './Pages/AuthRegisterBasic.tsx';
+import AuthForgotPasswordBasic from './Pages/AuthForgotPasswordBasic.tsx';
 import TablesBasic from './Pages/TablesBasic.tsx';
-import UserActions from './Pages/User/UserActions';
+import UserActions from './Pages/User/UserActions.tsx';
 import MyProfile from './Pages/MyProfile/MyProfile.tsx';
 import PageChangePassword from './Pages/MyProfile/PageChangePassword.tsx';
 
