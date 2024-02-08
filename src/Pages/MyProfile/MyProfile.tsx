@@ -25,7 +25,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import IconButton from "@mui/material/IconButton";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { styled } from "@mui/system";
-import validation from "../Validation/MyProfileValidation";
+import validation from "../Validation/MyProfileValidation.tsx";
 import { createTheme } from "@mui/material/styles";
 // import Chart from "../Dashboard/Chart";
 // import Deposits from "../Dashboard/Diposits";

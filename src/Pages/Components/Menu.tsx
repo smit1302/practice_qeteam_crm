@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
-import { mainListItems, secondaryListItems } from '../Dashboard/ListItems';
+import { mainListItems, secondaryListItems } from '../Dashboard/ListItems.tsx';
 
 interface AppBarProps extends MuiAppBarProps {
     open?: boolean;
