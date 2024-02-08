@@ -1,9 +1,9 @@
 //this is basic input file in which user can fill text, serch, email, url, phone, password, number, datetime, date, month, week, time, color. User can redirect into this file to clicking on "Form Element" from sidebar.
 
 import React from "react";
-import Menu from "./Compoents/Menu";
-import Navbar from "./Compoents/Navbar";
-import Footer from "./Compoents/Footer";
+import Menu from "./Components/Menu.tsx";
+import Navbar from "./Components/Navbar.tsx";
+import Footer from "./Components/Footer.tsx";
 
 export default function forms_basic_inputs() {
   return (

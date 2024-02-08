@@ -3,9 +3,9 @@
 import{ useEffect, useRef, useState } from "react";
 import ApexCharts from 'apexcharts';
 import React from 'react';
-import Footer from "./Compoents/Footer";
-import Navbar from "./Compoents/Navbar";
-import Menu from "./Compoents/Menu";
+import Footer from "./Components/Footer.tsx";
+import Navbar from "./Components/Navbar.tsx";
+import Menu from "./Components/Menu.tsx";
 import Dashboard from "./Dashboard/Dashboard";
 
 export default function Index() {
