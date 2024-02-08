@@ -1,10 +1,10 @@
 //this is account setting connection file which is third tab connections, user can able to connect their connected accounts as well as social-media accounts into the app.
 
 import React from "react";
-import Menu from "./Compoents/Menu";
-import Navbar from "./Compoents/Navbar";
+import Menu from "./Components/Menu.tsx";
+import Navbar from "./Components/Navbar.tsx";
 import { Link } from "react-router-dom";
-import Footer from "./Compoents/Footer";
+import Footer from "./Components/Footer.tsx";
 
 export default function pages_account_settings_connections() {
   return (

@@ -1,10 +1,10 @@
 //this is the account setting file in which mainly three tabs are there,first one is account from which user can able to see the profile details, htmlFor second tab notification user can redirect to the file page_account_settings_notifications, and htmlFor third tab connections user can redirect to the file pages_account_settings_connections.
 
 import React from 'react';
-import Navbar from './Compoents/Navbar';
-import Menu from './Compoents/Menu';
+import Navbar from './Components/Navbar.tsx';
+import Menu from './Components/Menu.tsx';
 import { Link } from 'react-router-dom';
-import Footer from './Compoents/Footer';
+import Footer from './Components/Footer.tsx';
 
 export default function pages_account_settings_account() {
   return (

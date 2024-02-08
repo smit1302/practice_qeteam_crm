@@ -1,9 +1,9 @@
 //this file is for showing data like project name, client, users, status of project and also able to do functionality like edit and delete that data and this is open from "Tables" in sidebar.
 
 import React from "react";
-import Navbar from "./Compoents/Navbar";
-import Menu from "./Compoents/Menu";
-import Footer from "./Compoents/Footer";
+import Navbar from "./Components/Navbar.tsx";
+import Menu from "./Components/Menu.tsx";
+import Footer from "./Components/Footer.tsx";
 
 export default function tables_basic() {
   return (

@@ -1,10 +1,10 @@
 //this is the second tab notification from which user is able to give permission for notification.
 
 import React from "react";
-import Menu from "./Compoents/Menu";
-import Navbar from "./Compoents/Navbar";
+import Menu from "./Components/Menu.tsx";
+import Navbar from "./Components/Navbar.tsx";
 import { Link } from "react-router-dom";
-import Footer from "./Compoents/Footer";
+import Footer from "./Components/Footer.tsx";
 
 export default function pages_account_settings_notifications() {
   return (

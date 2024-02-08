@@ -21,8 +21,8 @@ import { mainListItems, secondaryListItems } from './ListItems';
 import Chart from './Chart';
 import Deposits from './Diposits';
 import Orders from './Orders';
-import Navbar from '../Compoents/Navbar';
-import Menu from '../Compoents/Menu';
+import Navbar from '../Components/Navbar.tsx';
+import Menu from '../Components/Menu.tsx';
 
 function Copyright(props) {
   return (
